@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Abonnement{% endblock %}
+
+{% block body %}
+<style>
+    
+</style>
+
+<div class="example-wrapper">
+    <h1 style="text-align: center;">Modifier ma carte bleu</h1>
+    
+
+    <form action="{{ path('update-card') }}" method="POST">
+        <label for="cvv">CVV:</label><br>
+        <input type="text" id="cvv" name="cvv" value="123"><br>
+        <label for="card_number">Numéro de carte:</label><br>
+        <input type="text" id="card_number" name="card_number" value="4972123412341234"><br>
+        <br>
+        <button type="submit" class="btn btn-success">Enregistrer</button>
+    </form>
+
+
+
+</div>
+{% endblock %}

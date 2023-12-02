@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Adopte{% endblock %}
+
+{% block body %}
+<style>
+    
+</style>
+
+<div class="example-wrapper">
+    <h1 style="text-align: center;">Test Technique - Adopte</h1>
+
+    <div style="margin-left: 10%;margin-right: 10%; text-align:center; margin-top:20px;">
+
+        <a href="{{path('update-card')}}" class="btn btn-primary" role="button">Modifier ma carte bleu</a>
+
+        <a href="{{path('app_subscription')}}" class="btn btn-success" role="button">Choisir mon abonnement</a>
+        <a href="{{path('app_logout')}}" class="btn btn-danger" role="button">Se déconnecter</a>
+    </div>
+
+    
+    {% if is_granted('ROLE_ADMIN') %}
+        <h1 style="text-align: center; margin-top:50px;">Bienvenu admin</h1>
+        
+        <div style="margin-left: 10%;margin-right: 10%; text-align:center; margin-top:20px;">
+            <a href="{{path('all-users')}}" class="btn btn-primary" role="button">List des utilisateurs</a>
+        </div>
+        
+    {% endif %}
+
+    
+</div>
+
+
+
+
+{% endblock %}

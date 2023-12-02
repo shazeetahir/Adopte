@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Abonnement{% endblock %}
+
+{% block body %}
+<style>
+    
+</style>
+
+<div class="example-wrapper">
+    
+
+
+    {% if hasSubscription == false %}
+        <h1 style="text-align: center;">Abonnement</h1>
+        <form action="{{ path('subscription_selection') }}" method="POST">
+            <label for="subscription">Choisissez un Abonnement</label> <br>
+            <select id="subscription" name="subscription">
+                {% for subscription in subscriptions %}
+                    <option value="{{ subscription.id }}">{{ subscription.period }} jours - Engagement {{ subscription.commitmentPeriod }} mois - Prix : {{ subscription.price }} €</option>
+                {% endfor %}
+            </select> <br> <br>
+
+            <label for="cvv">CVV:</label><br>
+            <input type="text" id="cvv" name="cvv" value="123"><br>
+            <label for="card_number">Numéro de carte:</label><br>
+            <input type="text" id="card_number" name="card_number" value="4972123412341234"><br>
+
+            <br>
+
+            <button type="submit" class="btn btn-success">Enregistrer</button>
+        </form>
+    {% else %}
+        <h1 style="text-align: center;">Mon Abonnement Actuelle</h1>
+        <p>Date abonnement : {{mySubscription[0].date | date("m/d/Y") }}</p>
+        <p>Prix abonnement : {{mySubscription[0].subscription.price  }} €</p>
+    {% endif %}
+
+    
+
+
+
+
+</div>
+{% endblock %}
